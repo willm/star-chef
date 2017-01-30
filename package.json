@@ -4,8 +4,33 @@
   "description": "A killer site to turn you into a star chef",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "ava",
+    "build": "browserify -t [ babelify --presets [ react ] ] src/index.js -o build/app.js",
+    "start": "simplehttpserver"
   },
   "author": "Will Munn",
-  "license": "ISC"
+  "license": "ISC",
+  "dependencies": {
+    "babel-preset-react": "^6.22.0",
+    "babelify": "^7.3.0",
+    "browserify": "^14.0.0",
+    "react": "^15.4.2",
+    "react-dom": "^15.4.2"
+  },
+  "devDependencies": {
+    "ava": "^0.17.0",
+    "babel-preset-env": "^1.1.8",
+    "chromedriver": "2.25.1",
+    "cucumber": "^2.0.0-rc.6",
+    "selenium-webdriver": "3.0.1",
+    "simplehttpserver": "^0.0.6"
+  },
+  "ava": {
+    "babel": {
+      "presets": [
+        "es2015",
+        "react"
+      ]
+    }
+  }
 }
