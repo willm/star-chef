@@ -1,6 +1,6 @@
 const React = require('react');
 const mapSearch = require('../map-search');
-require('whatwg-fetch');
+const getRecipes = require('../get-recipes');
 
 module.exports = React.createClass({
     getInitialState: function () {
@@ -45,11 +45,8 @@ module.exports = React.createClass({
         </div>
     },
     handleSubmit: function (event) {
-        fetch('/build/api/recipes.json')
-            .then(response => response.json())
-            .then(results => {
-                this.setState(mapSearch(this.state.q, results));
-            });
+        getRecipes(this.state.q)
+            .then(mappedSearch => this.setState(mappedSearch));
         event.preventDefault();
     }
 });
