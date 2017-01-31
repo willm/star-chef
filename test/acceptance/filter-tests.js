@@ -17,6 +17,15 @@ test('Filter results by name', assert => {
         );
 });
 
+
+test('Filter results by ingredient', assert => {
+    steps = new FilterSteps(assert);
+    return steps.WhenTheFilterTermLettuceIsEntered()
+        .ThenTheFollowingRecipesAreDisplayed(
+            'Chicken Caesar Salad'
+        );
+});
+
 test.after.always(t => {
     return steps.browser.quit();
 });

@@ -28,6 +28,10 @@ class FilterSteps{
         return this.searchFor('Chicken');
     }
 
+    WhenTheFilterTermLettuceIsEntered() {
+        return this.searchFor('Lettuce');
+    }
+
     ThenTheFollowingRecipesAreDisplayed(...expectedRecipes) {
         return this.browser.findElements(By.css('.search-result'))
             .then(results => {
