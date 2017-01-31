@@ -1,5 +1,5 @@
 const ReactDOM = require('react-dom');
 const React = require('react');
-const SearchForm = require('./search-form');
+const Page = require('./page');
 
-ReactDOM.render(<SearchForm />, document.getElementById('app'));
+ReactDOM.render(<Page />, document.getElementById('app'));
