@@ -1,8 +1,7 @@
 module.exports = function mapSearch (q, results) {
     const caseInsensitiveSearch = new RegExp(q, 'i');
     const filtered = results.filter(result => {
-        return q != '' &&
-            result.name.match(caseInsensitiveSearch) ||
+        return result.name.match(caseInsensitiveSearch) ||
             result.ingredients
                 .filter(
                     i => i.match(caseInsensitiveSearch)

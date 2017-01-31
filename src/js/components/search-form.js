@@ -1,13 +1,11 @@
 const React = require('react');
 const mapSearch = require('../map-search');
 const getRecipes = require('../get-recipes');
+const defaultState = {message: '', results: []};
 
 module.exports = React.createClass({
     getInitialState: function () {
-        return {
-            q: '',
-            results: []
-        }
+        return defaultState;
     },
     handleChange: function (event) {
         this.setState({q: event.target.value});
@@ -45,7 +43,7 @@ module.exports = React.createClass({
         </div>
     },
     handleSubmit: function (event) {
-        getRecipes(this.state.q)
+        getRecipes(this.state.q, defaultState)
             .then(mappedSearch => this.setState(mappedSearch));
         event.preventDefault();
     }
