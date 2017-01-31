@@ -1,4 +1,5 @@
 const React = require('react');
+const mapSearch = require('./map-search');
 require('whatwg-fetch');
 
 module.exports = React.createClass({
@@ -15,13 +16,16 @@ module.exports = React.createClass({
         return <div>
             <div id="message">{this.state.message}</div>
             <form onSubmit={this.handleSubmit}>
-                <input 
+                <input
                     type="text" name=""
                     id="q" onChange={this.handleChange}/>
                 <button type="submit">Go!</button>
             </form>
             <div>
-                {this.state.results.map(r => <p className="search-result">{r.name}</p>)}
+                {
+                    this.state.results
+                        .map(r => <p className="search-result">{r.name}</p>)
+                }
             </div>
         </div>
     },
@@ -29,13 +33,7 @@ module.exports = React.createClass({
         fetch('/build/api/recipes.json')
             .then(response => response.json())
             .then(results => {
-                const filtered = results.filter(result => {
-                    return result.name.match(new RegExp(this.state.q));
-                });
-                this.setState({
-                    message: 'Sorry, nothing matched your filter term',
-                    results: filtered
-                });
+                this.setState(mapSearch(this.state.q, results));
             });
         event.preventDefault();
     }
