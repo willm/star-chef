@@ -1,6 +1,16 @@
 const test = require('ava');
 const mapSearch = require('../../src/map-search');
 
+test('When there are no results a message is displayed', assert => {
+    const mapped = mapSearch('', []);
+    assert.is(mapped.message, 'Sorry, nothing matched your filter term');
+});
+
+test('When there are results, no message is displayed', assert => {
+    const mapped = mapSearch('wibble', [{name: 'wibble'}]);
+    assert.is(mapped.message, '');
+});
+
 test('When the name matches, it is added to the results', assert => {
     const expected = {name: 'wibble'};
     const mapped = mapSearch('wibble', [expected]);

@@ -3,7 +3,9 @@ module.exports = function mapSearch (q, results) {
         return result.name.match(new RegExp(q, 'i'));
     });
     return {
-        message: 'Sorry, nothing matched your filter term',
+        message: filtered.length ?
+            '':
+            'Sorry, nothing matched your filter term',
         results: filtered
     };
 }
