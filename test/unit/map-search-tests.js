@@ -1,6 +1,12 @@
 const test = require('ava');
 const mapSearch = require('../../src/map-search');
 
+test('Searching for nothing returns no results', assert => {
+    const mapped = mapSearch('', [recipe('Burgers')]);
+    assert.is(mapped.results.length, 0);
+    assert.is(mapped.message, 'Sorry, nothing matched your filter term');
+});
+
 test('When there are no results a message is displayed', assert => {
     const mapped = mapSearch('', []);
     assert.is(mapped.message, 'Sorry, nothing matched your filter term');
