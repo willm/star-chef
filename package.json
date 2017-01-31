@@ -4,7 +4,7 @@
   "description": "A killer site to turn you into a star chef",
   "main": "index.js",
   "scripts": {
-    "test": "ava",
+    "test": "npm run build && ava test/**/*tests.js --verbose",
     "build": "browserify -t [ babelify --presets [ react ] ] src/index.js -o build/app.js",
     "start": "simplehttpserver"
   },
