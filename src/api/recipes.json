@@ -1,0 +1,29 @@
+[
+    {
+        "name": "Lemon Chicken",
+        "cookingTime": 30,
+        "ingredients": [
+            "Chicken",
+            "Lemon",
+            "Thyme"
+        ]
+    },
+    {
+        "name": "Beef Stroganoff",
+        "cookingTime": 30,
+        "ingredients": [
+            "Beef",
+            "Mustard",
+            "Mushrooms"
+        ]
+    },
+    {
+        "name": "Chicken Caesar Salad",
+        "cookingTime": 25,
+        "ingredients": [
+            "Lettuce",
+            "Chicken",
+            "Parmesan"
+        ]
+    }
+]
