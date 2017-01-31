@@ -18,7 +18,7 @@ test('When the name matches, it is added to the results', assert => {
     assert.deepEqual(mapped.results, [expected]);
 });
 
-test('When the name matches are case insensitive', assert => {
+test('Name filter is insensitive', assert => {
     const expected = recipe('WiBBlE');
     const mapped = mapSearch('wibble', [expected]);
     assert.is(mapped.results.length, 1);
@@ -36,6 +36,14 @@ test('When the recipe contains the ingredient, it is added to the results', asse
     const expected = recipe('foobar', ['Tomato']);
     const mapped = mapSearch('Tomato', [expected]);
     assert.is(mapped.results.length, 1);
+    assert.deepEqual(mapped.results, [expected]);
+});
+
+test('Ingredient filter is case insensitive', assert => {
+    const expected = recipe('foobar', ['Tomato']);
+    const mapped = mapSearch('TomATO', [expected]);
+    assert.is(mapped.
+results.length, 1);
     assert.deepEqual(mapped.results, [expected]);
 });
 

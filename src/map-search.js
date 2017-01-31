@@ -1,7 +1,11 @@
 module.exports = function mapSearch (q, results) {
+    const caseInsensitiveSearch = new RegExp(q, 'i');
     const filtered = results.filter(result => {
-        return result.name.match(new RegExp(q, 'i')) ||
-            result.ingredients.indexOf(q) != -1;
+        return result.name.match(caseInsensitiveSearch) ||
+            result.ingredients
+                .filter(
+                    i => i.match(caseInsensitiveSearch)
+                ).length > 0;
     });
     return {
         message: filtered.length ?
