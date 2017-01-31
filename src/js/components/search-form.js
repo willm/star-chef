@@ -1,5 +1,5 @@
 const React = require('react');
-const mapSearch = require('./map-search');
+const mapSearch = require('../map-search');
 require('whatwg-fetch');
 
 module.exports = React.createClass({

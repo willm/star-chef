@@ -1,5 +1,5 @@
 const test = require('ava');
-const mapSearch = require('../../src/map-search');
+const mapSearch = require('../../src/js/map-search');
 
 test('Searching for nothing returns no results', assert => {
     const mapped = mapSearch('', [recipe('Burgers')]);

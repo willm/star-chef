@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "test": "npm run build && ava test/**/*tests.js --verbose",
-    "build": "browserify -t [ babelify --presets [ react ] ] src/index.js -o build/app.js && cp -r src/api build && cp -r src/styles build",
+    "build": "rm -rf build && mkdir -p build/js && browserify -t [ babelify --presets [ react ] ] src/js/index.js -o build/js/app.js && cp -r src/api build && cp -r src/styles build",
     "start": "simplehttpserver"
   },
   "author": "Will Munn",
