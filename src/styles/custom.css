@@ -1,3 +1,7 @@
 .search-form {
     padding-bottom: 15px;
 }
+
+.search-form select {
+    width: 200px;
+}

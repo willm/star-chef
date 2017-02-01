@@ -17,10 +17,17 @@ test('Filter results by name', assert => {
         );
 });
 
-
 test('Filter results by ingredient', assert => {
     steps = new FilterSteps(assert);
     return steps.WhenTheFilterTermLettuceIsEntered()
+        .ThenTheFollowingRecipesAreDisplayed(
+            'Chicken Caesar Salad'
+        );
+});
+
+test('Filter results by cooking time', assert => {
+    steps = new FilterSteps(assert);
+    return steps.WhenTheMaximumCookingTime25MinutesIsSelected()
         .ThenTheFollowingRecipesAreDisplayed(
             'Chicken Caesar Salad'
         );

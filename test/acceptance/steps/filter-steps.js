@@ -32,6 +32,15 @@ class FilterSteps{
         return this.searchFor('Lettuce');
     }
 
+    WhenTheMaximumCookingTime25MinutesIsSelected(){
+        this.browser.get('http://localhost:8000');
+        const form = this.browser.findElement(By.css('form'));
+        form.findElement(By.css("#time>option[value='25']"))
+            .then(option => option.click())
+            .then(form.submit());
+        return this;
+    }
+
     ThenTheFollowingRecipesAreDisplayed(...expectedRecipes) {
         return this.browser.findElements(By.css('.search-result'))
             .then(results => {
