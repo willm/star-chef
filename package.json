@@ -6,7 +6,7 @@
   "scripts": {
     "test": "npm run build && ava test/**/*tests.js --verbose",
     "build": "rm -rf build && mkdir -p build/js && browserify -t [ babelify --presets [ react ] ] src/js/index.js -o build/js/app.js && cp -r src/api build && cp -r src/styles build",
-    "start": "simplehttpserver"
+    "start": "npm run build && simplehttpserver"
   },
   "author": "Will Munn",
   "license": "ISC",
